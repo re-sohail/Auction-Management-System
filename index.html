@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auction System</title>
+  <link rel="stylesheet" href="src/css/bootstrap.min.css">
+  <link rel="stylesheet" href="src/css/main.css">
+  <link rel="stylesheet" href="src/css/appresponsive.css">
+</head>
+
+<body>
+  <div class="filter-floating position-fixed" id="filter-btn"><img src="media/floating-filter.png" alt=""></div>
+  <header class="container-fluid header-main py-3">
+    <div class="top-nav container  mx-auto d-flex align-item-center justify-content-between">
+      <div class="mobmenu  my-auto " id="mobmenu">
+        <img src="media/mobnavmenu.png"  alt="">
+      </div>
+      <div class="site-logo">
+        <img src="media/main_logo.png" alt="">
+      </div>
+      <div class="site-menu d-flex align-item-center">
+        <div class="menulist" id="menulist">
+          <ul class="m-0 p-0 h-100 d-flex align-item-center menu-list">
+            <li class=""><a href="">Vehicles</a></li>
+            <li class=""><a href="">FAQs</a></li>
+            <li class=""><a href="">Contact us</a></li>
+            <li class=""><a href="">
+              <div class="dropdown">
+                <button class="country-selector dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img src="media/uae_flag.png" alt=""></a>
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#"><img src="media/uae_flag.png" alt=""></a></li>
+                  <li><a class="dropdown-item" href="#"><img src="media/uae_flag.png" alt=""></a></li>
+                  <li><a class="dropdown-item" href="#"><img src="media/uae_flag.png" alt=""></a></li>
+                </ul>
+              </div>
+              
+            </li>
+          </ul>
+        </div>
+
+        <div class="account-area">
+          <a href="login.html" class="account-btn"><img src="media/user_account.png" alt=""> <label>SIGN IN</label> </a>
+        </div>
+      </div>
+    </div>
+    <div class="second-nav d-flex  align-item-center container py-3">
+      <div class="search-bar d-flex align-item-center ">
+        <img src="media/search_icon.png" alt="" class="search-bar-icon">
+        <input type="text" placeholder="Search Your Dream Vehicle">
+      </div>
+      <div class="filter mx-5">
+        <select name="" id="">
+          <option value="">By Time</option>
+          <option value="">By Price</option>
+          <option value="">By Model</option>
+        </select>
+      </div>
+    </div>
+    <div class="third-nav container py-3 d-flex align-item-center justify-content-between">
+      <div class="filter filter-condition ">
+        <select name="" id="">
+          <option value="">Damage Type</option>
+          <option value="">Model Type</option>
+          <option value="">Brand Type</option>
+        </select>
+      </div>
+      <div class="choices-area d-flex align-item-center">
+        <div class="choices d-flex align-item-center">
+          <div class="choice-area-inner px-5">
+            <input type="checkbox" class="mx-2" name="" id="checkboxfav">
+            <label for="checkboxfav" class="">Show Favorites</label>
+          </div>
+          <div class="choice-area-inner px-5">
+            <input type="checkbox" class="mx-2" name="" id="checkboxlive">
+            <label for="checkboxlive">Live Auction</label>
+          </div>
+          <div class="choice-area-inner px-5">
+            <input type="checkbox" class="mx-2" name="" id="checkboxcomming">
+            <label for="checkboxcomming">Comming Soon</label>
+          </div>
+          <div class="choice-area-inner px-5">
+            <input type="checkbox" class="mx-2" name="" checked id="checkboxended">
+            <label for="checkboxended">Ended Auctions</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div id="main" class="position-relative container py-4 px-0  row mx-auto ">
+    <div class="col-3  px-2  side-filter-area" id="filter-card">
+      <div class="side-filters p-3">
+        <form class="drop-area">
+          <div class="drop-dwn">
+            <div class="drop-main" id="filtermake">
+              
+              <label for="filtermake">Make</label>
+              <img src="media/dropdown.png" alt="">
+            </div>
+            <div class="dropfilters dropfilters1" id="filtermake_drop">
+              <div>
+                <input type="checkbox" name="" id="make1">
+                <label for="make1">Make1</label>
+
+              </div>
+              <div>
+                <input type="checkbox" name="" id="make2">
+                <label for="make2">Make2</label>
+              </div>
+            </div>
+          </div>
+          <div class="drop-dwn">
+            <div class="drop-main" id="filtermodel">
+              
+              <label for="filtermodel">Model</label>
+              <img src="media/dropdown.png" alt="">
+            </div>
+            <div class="dropfilters" id="filtermodel_drop">
+              <div>
+                <input type="checkbox" name="" id="model1">
+                <label for="model1">Model1</label>
+              </div>
+              <div>
+                <input type="checkbox" name="" id="model2">
+                <label for="model2">Model2</label>
+              </div>
+            </div>
+          </div>
+          <div class="drop-dwn">
+            <div class="drop-main" id="filtercity">
+              
+              <label for="filtercity">City</label>
+              <img src="media/dropdown.png" alt="">
+            </div>
+            <div class="dropfilters" id="filtercity_drop">
+              <div>
+                <input type="checkbox" name="" id="city1">
+                <label for="city1">City1</label>
+              </div>
+              <div>
+                <input type="checkbox" name="" id="city2">
+                <label for="city2">City2</label>
+              </div>
+            </div>
+          </div>
+          <div class="two-droper d-flex align-item-center w-100">
+            <div class="one-drop w-50">
+              <div class="drop-main" id="filterfrom">
+                
+                <label for="filterfrom">From</label>
+                <img src="media/dropdown.png" alt="">
+              </div>
+              <div class="dropfilters" id="filterfrom_drop">
+                <div>
+                  <input type="checkbox" name="" id="check1">
+                  <label for="check1">From1</label>
+                </div>
+                <div>
+                  <input type="checkbox" name="" id="check2">
+                  <label for="check2">From2</label>
+                </div>
+              </div>
+            </div>
+            <div class="two-drop w-50">
+              <div class="drop-main"  id="filterto">
+                
+                <label for="filterto">To</label>
+                <img src="media/dropdown.png" alt="">
+              </div>
+              <div class="dropfilters" id="filterto_drop">
+                <div>
+                  <input type="checkbox" name="" id="to1">
+                  <label for="to1">To1</label>
+                </div>
+                <div>
+                  <input type="checkbox" name="" id="to2">
+                  <label for="to2">To2</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="drop-dwn input ">
+            <input type="text" placeholder="Auction ID" name="" id="">
+          </div>
+          <div class="drop-dwn input ">
+            <input type="number" placeholder="Current Bid" name="" id="">
+          </div>
+          <button type="submit"> <img src="media/white-search.png" alt=""> SEARCH </button>
+          <br>
+          <input type="reset" name="" value="RESET" id="">
+      </div>
+
+      </form>
+    </div>
+  
+
+  <div class="col-9 py-0  px-2  row  d-flex align-item-  justify-content-center main-content">
+    <div class="auction-card ">
+      <div class="duration"><p class="m-0">Thursday 12 Dec 2019 - 15:10</p></div>
+      <div class="auction-image w-100 position-relative">
+        <img src="media/fav_star.png" class="position-absolute product-fav-icon" alt="">
+        <img src="media/auct_hammer.png" class="position-absolute product-auct-icon" alt="">
+        <img src="media/car1.png" class="w-100" alt="">
+      </div>
+      <div class="down- py-3 product-details d-flex align-item-center justify-content-between">
+        <h5 class="m-0">Toyota Camry SE</h5>
+        <p class="m-0">2019</p>
+      </div>
+      <div class="condition d-flex align-item-center justify-content-between down- py-3" >
+        <div class="condition-area d-flex align-item-center">
+          <div>
+          <img src="media/overturned-vehicle.png" class="ico" alt="">
+          </div>
+          <p class="m-0 condition-label">Accident</p>
+        </div>
+        <div class="condition-area d-flex align-item-center">
+          <div>
+          <img src="media/visible.png" class="ico" alt="">
+          </div>
+          <p class="m-0 condition-label">7,732 Views</p>
+        </div>
+      </div>
+      <div class="down- py-3 d-flex align-item-center">
+        <div class="img">
+          <img src="media/location.png" class="ico" alt="">
+        </div>
+        <div>
+          <label for="" class="litle-label fw-lighter">Location</label>
+          <h6 class="fw-bold">Riyadh Yard, Saudi Arabia</h6>
+        </div>
+        
+      </div>
+      <div class="condition price d-flex align-item-center justify-content-between down- py-3 w-100" >
+        <div class="condition-area d-flex align-item-center w-50">
+          <div>
+          <img src="media/auct_hammer_green.png" class="ico" alt="">
+          </div>
+          <div>
+          <label class="fw-lighter litle-label">Sold for</label>
+          <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+        </div>
+        </div>
+        <div class="condition-area d-flex align-item-center w-50">
+          <div>
+          <img src="media/money_bag.png" class="ico" alt="">
+          </div>
+          <div>
+          <label class="fw-lighter litle-label">Buy now</label>
+          <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+        </div>
+        </div>
+      </div>
+      <div class="more">
+        <div class="dropdown w-100">
+          <button class="w-100  dropdown-toggle bids fw-lighter" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            View 3 Bids
+          </button>
+          <ul class="dropdown-menu w-100">
+            <li class="dropdown-item">
+              <div class="d-flex align-item-end justify-content-between">
+                <div class="calender">
+                  <img src="media/calendar.png" alt="">
+                  <p>1.</p>
+                </div>
+                <div class="bid-details">
+                  <label class="fw-lighter litle-label">10 Dec 2019 - 20:05</label>
+                  <h6 class="fw-bold">Jovana milic</h6>
+                </div>
+                <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+              </div>
+            </li>
+            <li class="dropdown-item">
+              <div class="d-flex align-item-end justify-content-between">
+                <div class="calender">
+                  <img src="media/calendar.png" alt="">
+                  <p>2.</p>
+                </div>
+                <div class="bid-details">
+                  <label class="fw-lighter litle-label">10 Dec 2019 - 20:05</label>
+                  <h6 class="fw-bold">Jovana milic</h6>
+                </div>
+                <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+              </div>
+            </li>
+            <li class="dropdown-item">
+              <div class="d-flex align-item-end justify-content-between">
+                <div class="calender">
+                  <img src="media/calendar.png" alt="">
+                  <p>3.</p>
+                </div>
+                <div class="bid-details">
+                  <label class="fw-lighter litle-label">10 Dec 2019 - 20:05</label>
+                  <h6 class="fw-bold">Jovana milic</h6>
+                </div>
+                <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="auction-card ">
+      <div class="duration"><p class="m-0">Thursday 12 Dec 2019 - 15:10</p></div>
+      <div class="auction-image w-100 position-relative">
+        <img src="media/fav_star.png" class="position-absolute product-fav-icon" alt="">
+        <img src="media/auct_hammer.png" class="position-absolute product-auct-icon" alt="">
+        <img src="media/car1.png" class="w-100" alt="">
+      </div>
+      <div class="down- py-3 product-details d-flex align-item-center justify-content-between">
+        <h5 class="m-0">Toyota Camry SE</h5>
+        <p class="m-0">2019</p>
+      </div>
+      <div class="condition d-flex align-item-center justify-content-between down- py-3" >
+        <div class="condition-area d-flex align-item-center">
+          <div>
+          <img src="media/overturned-vehicle.png" class="ico" alt="">
+          </div>
+          <p class="m-0 condition-label">Accident</p>
+        </div>
+        <div class="condition-area d-flex align-item-center">
+          <div>
+          <img src="media/visible.png" class="ico" alt="">
+          </div>
+          <p class="m-0 condition-label">7,732 Views</p>
+        </div>
+      </div>
+      <div class="down- py-3 d-flex align-item-center">
+        <div class="img">
+          <img src="media/location.png" class="ico" alt="">
+        </div>
+        <div>
+          <label for="" class="litle-label fw-lighter">Location</label>
+          <h6 class="fw-bold">Riyadh Yard, Saudi Arabia</h6>
+        </div>
+        
+      </div>
+      <div class="condition price d-flex align-item-center justify-content-between down- py-3 w-100" >
+        <div class="condition-area d-flex align-item-center w-50">
+          <div>
+          <img src="media/auct_hammer_green.png" class="ico" alt="">
+          </div>
+          <div>
+          <label class="fw-lighter litle-label">Sold for</label>
+          <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+        </div>
+        </div>
+        <div class="condition-area d-flex align-item-center w-50">
+          <div>
+          <img src="media/money_bag.png" class="ico" alt="">
+          </div>
+          <div>
+          <label class="fw-lighter litle-label">Buy now</label>
+          <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+        </div>
+        </div>
+      </div>
+      <div class="more">
+        <div class="dropdown w-100">
+          <button class="w-100  dropdown-toggle bids fw-lighter" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            View 3 Bids
+          </button>
+          <ul class="dropdown-menu w-100">
+            <li class="dropdown-item">
+              <div class="d-flex align-item-end justify-content-between">
+                <div class="calender">
+                  <img src="media/calendar.png" alt="">
+                  <p>1.</p>
+                </div>
+                <div class="bid-details">
+                  <label class="fw-lighter litle-label">10 Dec 2019 - 20:05</label>
+                  <h6 class="fw-bold">Jovana milic</h6>
+                </div>
+                <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+              </div>
+            </li>
+            <li class="dropdown-item">
+              <div class="d-flex align-item-end justify-content-between">
+                <div class="calender">
+                  <img src="media/calendar.png" alt="">
+                  <p>2.</p>
+                </div>
+                <div class="bid-details">
+                  <label class="fw-lighter litle-label">10 Dec 2019 - 20:05</label>
+                  <h6 class="fw-bold">Jovana milic</h6>
+                </div>
+                <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+              </div>
+            </li>
+            <li class="dropdown-item">
+              <div class="d-flex align-item-end justify-content-between">
+                <div class="calender">
+                  <img src="media/calendar.png" alt="">
+                  <p>3.</p>
+                </div>
+                <div class="bid-details">
+                  <label class="fw-lighter litle-label">10 Dec 2019 - 20:05</label>
+                  <h6 class="fw-bold">Jovana milic</h6>
+                </div>
+                <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="auction-card ">
+      <div class="duration"><p class="m-0">Thursday 12 Dec 2019 - 15:10</p></div>
+      <div class="auction-image w-100 position-relative">
+        <img src="media/fav_star.png" class="position-absolute product-fav-icon" alt="">
+        <img src="media/auct_hammer.png" class="position-absolute product-auct-icon" alt="">
+        <img src="media/car1.png" class="w-100" alt="">
+      </div>
+      <div class="down- py-3 product-details d-flex align-item-center justify-content-between">
+        <h5 class="m-0">Toyota Camry SE</h5>
+        <p class="m-0">2019</p>
+      </div>
+      <div class="condition d-flex align-item-center justify-content-between down- py-3" >
+        <div class="condition-area d-flex align-item-center">
+          <div>
+          <img src="media/overturned-vehicle.png" class="ico" alt="">
+          </div>
+          <p class="m-0 condition-label">Accident</p>
+        </div>
+        <div class="condition-area d-flex align-item-center">
+          <div>
+          <img src="media/visible.png" class="ico" alt="">
+          </div>
+          <p class="m-0 condition-label">7,732 Views</p>
+        </div>
+      </div>
+      <div class="down- py-3 d-flex align-item-center">
+        <div class="img">
+          <img src="media/location.png" class="ico" alt="">
+        </div>
+        <div>
+          <label for="" class="litle-label fw-lighter">Location</label>
+          <h6 class="fw-bold">Riyadh Yard, Saudi Arabia</h6>
+        </div>
+        
+      </div>
+      <div class="condition price d-flex align-item-center justify-content-between down- py-3 w-100" >
+        <div class="condition-area d-flex align-item-center w-50">
+          <div>
+          <img src="media/auct_hammer_green.png" class="ico" alt="">
+          </div>
+          <div>
+          <label class="fw-lighter litle-label">Sold for</label>
+          <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+        </div>
+        </div>
+        <div class="condition-area d-flex align-item-center w-50">
+          <div>
+          <img src="media/money_bag.png" class="ico" alt="">
+          </div>
+          <div>
+          <label class="fw-lighter litle-label">Buy now</label>
+          <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+        </div>
+        </div>
+      </div>
+      <div class="more">
+        <div class="dropdown w-100">
+          <button class="w-100  dropdown-toggle bids fw-lighter" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            View 3 Bids
+          </button>
+          <ul class="dropdown-menu w-100">
+            <li class="dropdown-item">
+              <div class="d-flex align-item-end justify-content-between">
+                <div class="calender">
+                  <img src="media/calendar.png" alt="">
+                  <p>1.</p>
+                </div>
+                <div class="bid-details">
+                  <label class="fw-lighter litle-label">10 Dec 2019 - 20:05</label>
+                  <h6 class="fw-bold">Jovana milic</h6>
+                </div>
+                <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+              </div>
+            </li>
+            <li class="dropdown-item">
+              <div class="d-flex align-item-end justify-content-between">
+                <div class="calender">
+                  <img src="media/calendar.png" alt="">
+                  <p>2.</p>
+                </div>
+                <div class="bid-details">
+                  <label class="fw-lighter litle-label">10 Dec 2019 - 20:05</label>
+                  <h6 class="fw-bold">Jovana milic</h6>
+                </div>
+                <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+              </div>
+            </li>
+            <li class="dropdown-item">
+              <div class="d-flex align-item-end justify-content-between">
+                <div class="calender">
+                  <img src="media/calendar.png" alt="">
+                  <p>3.</p>
+                </div>
+                <div class="bid-details">
+                  <label class="fw-lighter litle-label">10 Dec 2019 - 20:05</label>
+                  <h6 class="fw-bold">Jovana milic</h6>
+                </div>
+                <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="auction-card ">
+      <div class="duration"><p class="m-0">Thursday 12 Dec 2019 - 15:10</p></div>
+      <div class="auction-image w-100 position-relative">
+        <img src="media/fav_star.png" class="position-absolute product-fav-icon" alt="">
+        <img src="media/auct_hammer.png" class="position-absolute product-auct-icon" alt="">
+        <img src="media/car1.png" class="w-100" alt="">
+      </div>
+      <div class="down- py-3 product-details d-flex align-item-center justify-content-between">
+        <h5 class="m-0">Toyota Camry SE</h5>
+        <p class="m-0">2019</p>
+      </div>
+      <div class="condition d-flex align-item-center justify-content-between down- py-3" >
+        <div class="condition-area d-flex align-item-center">
+          <div>
+          <img src="media/overturned-vehicle.png" class="ico" alt="">
+          </div>
+          <p class="m-0 condition-label">Accident</p>
+        </div>
+        <div class="condition-area d-flex align-item-center">
+          <div>
+          <img src="media/visible.png" class="ico" alt="">
+          </div>
+          <p class="m-0 condition-label">7,732 Views</p>
+        </div>
+      </div>
+      <div class="down- py-3 d-flex align-item-center">
+        <div class="img">
+          <img src="media/location.png" class="ico" alt="">
+        </div>
+        <div>
+          <label for="" class="litle-label fw-lighter">Location</label>
+          <h6 class="fw-bold">Riyadh Yard, Saudi Arabia</h6>
+        </div>
+        
+      </div>
+      <div class="condition price d-flex align-item-center justify-content-between down- py-3 w-100" >
+        <div class="condition-area d-flex align-item-center w-50">
+          <div>
+          <img src="media/auct_hammer_green.png" class="ico" alt="">
+          </div>
+          <div>
+          <label class="fw-lighter litle-label">Sold for</label>
+          <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+        </div>
+        </div>
+        <div class="condition-area d-flex align-item-center w-50">
+          <div>
+          <img src="media/money_bag.png" class="ico" alt="">
+          </div>
+          <div>
+          <label class="fw-lighter litle-label">Buy now</label>
+          <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+        </div>
+        </div>
+      </div>
+      <div class="more">
+        <div class="dropdown w-100">
+          <button class="w-100  dropdown-toggle bids fw-lighter" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            View 3 Bids
+          </button>
+          <ul class="dropdown-menu w-100">
+            <li class="dropdown-item">
+              <div class="d-flex align-item-end justify-content-between">
+                <div class="calender">
+                  <img src="media/calendar.png" alt="">
+                  <p>1.</p>
+                </div>
+                <div class="bid-details">
+                  <label class="fw-lighter litle-label">10 Dec 2019 - 20:05</label>
+                  <h6 class="fw-bold">Jovana milic</h6>
+                </div>
+                <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+              </div>
+            </li>
+            <li class="dropdown-item">
+              <div class="d-flex align-item-end justify-content-between">
+                <div class="calender">
+                  <img src="media/calendar.png" alt="">
+                  <p>2.</p>
+                </div>
+                <div class="bid-details">
+                  <label class="fw-lighter litle-label">10 Dec 2019 - 20:05</label>
+                  <h6 class="fw-bold">Jovana milic</h6>
+                </div>
+                <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+              </div>
+            </li>
+            <li class="dropdown-item">
+              <div class="d-flex align-item-end justify-content-between">
+                <div class="calender">
+                  <img src="media/calendar.png" alt="">
+                  <p>3.</p>
+                </div>
+                <div class="bid-details">
+                  <label class="fw-lighter litle-label">10 Dec 2019 - 20:05</label>
+                  <h6 class="fw-bold">Jovana milic</h6>
+                </div>
+                <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="auction-card ">
+      <div class="duration"><p class="m-0">Thursday 12 Dec 2019 - 15:10</p></div>
+      <div class="auction-image w-100 position-relative">
+        <img src="media/fav_star.png" class="position-absolute product-fav-icon" alt="">
+        <img src="media/auct_hammer.png" class="position-absolute product-auct-icon" alt="">
+        <img src="media/car1.png" class="w-100" alt="">
+      </div>
+      <div class="down- py-3 product-details d-flex align-item-center justify-content-between">
+        <h5 class="m-0">Toyota Camry SE</h5>
+        <p class="m-0">2019</p>
+      </div>
+      <div class="condition d-flex align-item-center justify-content-between down- py-3" >
+        <div class="condition-area d-flex align-item-center">
+          <div>
+          <img src="media/overturned-vehicle.png" class="ico" alt="">
+          </div>
+          <p class="m-0 condition-label">Accident</p>
+        </div>
+        <div class="condition-area d-flex align-item-center">
+          <div>
+          <img src="media/visible.png" class="ico" alt="">
+          </div>
+          <p class="m-0 condition-label">7,732 Views</p>
+        </div>
+      </div>
+      <div class="down- py-3 d-flex align-item-center">
+        <div class="img">
+          <img src="media/location.png" class="ico" alt="">
+        </div>
+        <div>
+          <label for="" class="litle-label fw-lighter">Location</label>
+          <h6 class="fw-bold">Riyadh Yard, Saudi Arabia</h6>
+        </div>
+        
+      </div>
+      <div class="condition price d-flex align-item-center justify-content-between down- py-3 w-100" >
+        <div class="condition-area d-flex align-item-center w-50">
+          <div>
+          <img src="media/auct_hammer_green.png" class="ico" alt="">
+          </div>
+          <div>
+          <label class="fw-lighter litle-label">Sold for</label>
+          <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+        </div>
+        </div>
+        <div class="condition-area d-flex align-item-center w-50">
+          <div>
+          <img src="media/money_bag.png" class="ico" alt="">
+          </div>
+          <div>
+          <label class="fw-lighter litle-label">Buy now</label>
+          <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+        </div>
+        </div>
+      </div>
+      <div class="more">
+        <div class="dropdown w-100">
+          <button class="w-100  dropdown-toggle bids fw-lighter" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            View 3 Bids
+          </button>
+          <ul class="dropdown-menu w-100">
+            <li class="dropdown-item">
+              <div class="d-flex align-item-end justify-content-between">
+                <div class="calender">
+                  <img src="media/calendar.png" alt="">
+                  <p>1.</p>
+                </div>
+                <div class="bid-details">
+                  <label class="fw-lighter litle-label">10 Dec 2019 - 20:05</label>
+                  <h6 class="fw-bold">Jovana milic</h6>
+                </div>
+                <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+              </div>
+            </li>
+            <li class="dropdown-item">
+              <div class="d-flex align-item-end justify-content-between">
+                <div class="calender">
+                  <img src="media/calendar.png" alt="">
+                  <p>2.</p>
+                </div>
+                <div class="bid-details">
+                  <label class="fw-lighter litle-label">10 Dec 2019 - 20:05</label>
+                  <h6 class="fw-bold">Jovana milic</h6>
+                </div>
+                <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+              </div>
+            </li>
+            <li class="dropdown-item">
+              <div class="d-flex align-item-end justify-content-between">
+                <div class="calender">
+                  <img src="media/calendar.png" alt="">
+                  <p>3.</p>
+                </div>
+                <div class="bid-details">
+                  <label class="fw-lighter litle-label">10 Dec 2019 - 20:05</label>
+                  <h6 class="fw-bold">Jovana milic</h6>
+                </div>
+                <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="auction-card ">
+      <div class="duration"><p class="m-0">Thursday 12 Dec 2019 - 15:10</p></div>
+      <div class="auction-image w-100 position-relative">
+        <img src="media/fav_star.png" class="position-absolute product-fav-icon" alt="">
+        <img src="media/auct_hammer.png" class="position-absolute product-auct-icon" alt="">
+        <img src="media/car1.png" class="w-100" alt="">
+      </div>
+      <div class="down- py-3 product-details d-flex align-item-center justify-content-between">
+        <h5 class="m-0">Toyota Camry SE</h5>
+        <p class="m-0">2019</p>
+      </div>
+      <div class="condition d-flex align-item-center justify-content-between down- py-3" >
+        <div class="condition-area d-flex align-item-center">
+          <div>
+          <img src="media/overturned-vehicle.png" class="ico" alt="">
+          </div>
+          <p class="m-0 condition-label">Accident</p>
+        </div>
+        <div class="condition-area d-flex align-item-center">
+          <div>
+          <img src="media/visible.png" class="ico" alt="">
+          </div>
+          <p class="m-0 condition-label">7,732 Views</p>
+        </div>
+      </div>
+      <div class="down- py-3 d-flex align-item-center">
+        <div class="img">
+          <img src="media/location.png" class="ico" alt="">
+        </div>
+        <div>
+          <label for="" class="litle-label fw-lighter">Location</label>
+          <h6 class="fw-bold">Riyadh Yard, Saudi Arabia</h6>
+        </div>
+        
+      </div>
+      <div class="condition price d-flex align-item-center justify-content-between down- py-3 w-100" >
+        <div class="condition-area d-flex align-item-center w-50">
+          <div>
+          <img src="media/auct_hammer_green.png" class="ico" alt="">
+          </div>
+          <div>
+          <label class="fw-lighter litle-label">Sold for</label>
+          <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+        </div>
+        </div>
+        <div class="condition-area d-flex align-item-center w-50">
+          <div>
+          <img src="media/money_bag.png" class="ico" alt="">
+          </div>
+          <div>
+          <label class="fw-lighter litle-label">Buy now</label>
+          <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+        </div>
+        </div>
+      </div>
+      <div class="more">
+        <div class="dropdown w-100">
+          <button class="w-100  dropdown-toggle bids fw-lighter" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            View 3 Bids
+          </button>
+          <ul class="dropdown-menu w-100">
+            <li class="dropdown-item">
+              <div class="d-flex align-item-end justify-content-between">
+                <div class="calender">
+                  <img src="media/calendar.png" alt="">
+                  <p>1.</p>
+                </div>
+                <div class="bid-details">
+                  <label class="fw-lighter litle-label">10 Dec 2019 - 20:05</label>
+                  <h6 class="fw-bold">Jovana milic</h6>
+                </div>
+                <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+              </div>
+            </li>
+            <li class="dropdown-item">
+              <div class="d-flex align-item-end justify-content-between">
+                <div class="calender">
+                  <img src="media/calendar.png" alt="">
+                  <p>2.</p>
+                </div>
+                <div class="bid-details">
+                  <label class="fw-lighter litle-label">10 Dec 2019 - 20:05</label>
+                  <h6 class="fw-bold">Jovana milic</h6>
+                </div>
+                <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+              </div>
+            </li>
+            <li class="dropdown-item">
+              <div class="d-flex align-item-end justify-content-between">
+                <div class="calender">
+                  <img src="media/calendar.png" alt="">
+                  <p>3.</p>
+                </div>
+                <div class="bid-details">
+                  <label class="fw-lighter litle-label">10 Dec 2019 - 20:05</label>
+                  <h6 class="fw-bold">Jovana milic</h6>
+                </div>
+                <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="auction-card ">
+      <div class="duration"><p class="m-0">Thursday 12 Dec 2019 - 15:10</p></div>
+      <div class="auction-image w-100 position-relative">
+        <img src="media/fav_star.png" class="position-absolute product-fav-icon" alt="">
+        <img src="media/auct_hammer.png" class="position-absolute product-auct-icon" alt="">
+        <img src="media/car1.png" class="w-100" alt="">
+      </div>
+      <div class="down- py-3 product-details d-flex align-item-center justify-content-between">
+        <h5 class="m-0">Toyota Camry SE</h5>
+        <p class="m-0">2019</p>
+      </div>
+      <div class="condition d-flex align-item-center justify-content-between down- py-3" >
+        <div class="condition-area d-flex align-item-center">
+          <div>
+          <img src="media/overturned-vehicle.png" class="ico" alt="">
+          </div>
+          <p class="m-0 condition-label">Accident</p>
+        </div>
+        <div class="condition-area d-flex align-item-center">
+          <div>
+          <img src="media/visible.png" class="ico" alt="">
+          </div>
+          <p class="m-0 condition-label">7,732 Views</p>
+        </div>
+      </div>
+      <div class="down- py-3 d-flex align-item-center">
+        <div class="img">
+          <img src="media/location.png" class="ico" alt="">
+        </div>
+        <div>
+          <label for="" class="litle-label fw-lighter">Location</label>
+          <h6 class="fw-bold">Riyadh Yard, Saudi Arabia</h6>
+        </div>
+        
+      </div>
+      <div class="condition price d-flex align-item-center justify-content-between down- py-3 w-100" >
+        <div class="condition-area d-flex align-item-center w-50">
+          <div>
+          <img src="media/auct_hammer_green.png" class="ico" alt="">
+          </div>
+          <div>
+          <label class="fw-lighter litle-label">Sold for</label>
+          <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+        </div>
+        </div>
+        <div class="condition-area d-flex align-item-center w-50">
+          <div>
+          <img src="media/money_bag.png" class="ico" alt="">
+          </div>
+          <div>
+          <label class="fw-lighter litle-label">Buy now</label>
+          <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+        </div>
+        </div>
+      </div>
+      <div class="more">
+        <div class="dropdown w-100">
+          <button class="w-100  dropdown-toggle bids fw-lighter" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            View 3 Bids
+          </button>
+          <ul class="dropdown-menu w-100">
+            <li class="dropdown-item">
+              <div class="d-flex align-item-end justify-content-between">
+                <div class="calender">
+                  <img src="media/calendar.png" alt="">
+                  <p>1.</p>
+                </div>
+                <div class="bid-details">
+                  <label class="fw-lighter litle-label">10 Dec 2019 - 20:05</label>
+                  <h6 class="fw-bold">Jovana milic</h6>
+                </div>
+                <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+              </div>
+            </li>
+            <li class="dropdown-item">
+              <div class="d-flex align-item-end justify-content-between">
+                <div class="calender">
+                  <img src="media/calendar.png" alt="">
+                  <p>2.</p>
+                </div>
+                <div class="bid-details">
+                  <label class="fw-lighter litle-label">10 Dec 2019 - 20:05</label>
+                  <h6 class="fw-bold">Jovana milic</h6>
+                </div>
+                <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+              </div>
+            </li>
+            <li class="dropdown-item">
+              <div class="d-flex align-item-end justify-content-between">
+                <div class="calender">
+                  <img src="media/calendar.png" alt="">
+                  <p>3.</p>
+                </div>
+                <div class="bid-details">
+                  <label class="fw-lighter litle-label">10 Dec 2019 - 20:05</label>
+                  <h6 class="fw-bold">Jovana milic</h6>
+                </div>
+                <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="auction-card ">
+      <div class="duration"><p class="m-0">Thursday 12 Dec 2019 - 15:10</p></div>
+      <div class="auction-image w-100 position-relative">
+        <img src="media/fav_star.png" class="position-absolute product-fav-icon" alt="">
+        <img src="media/auct_hammer.png" class="position-absolute product-auct-icon" alt="">
+        <img src="media/car1.png" class="w-100" alt="">
+      </div>
+      <div class="down- py-3 product-details d-flex align-item-center justify-content-between">
+        <h5 class="m-0">Toyota Camry SE</h5>
+        <p class="m-0">2019</p>
+      </div>
+      <div class="condition d-flex align-item-center justify-content-between down- py-3" >
+        <div class="condition-area d-flex align-item-center">
+          <div>
+          <img src="media/overturned-vehicle.png" class="ico" alt="">
+          </div>
+          <p class="m-0 condition-label">Accident</p>
+        </div>
+        <div class="condition-area d-flex align-item-center">
+          <div>
+          <img src="media/visible.png" class="ico" alt="">
+          </div>
+          <p class="m-0 condition-label">7,732 Views</p>
+        </div>
+      </div>
+      <div class="down- py-3 d-flex align-item-center">
+        <div class="img">
+          <img src="media/location.png" class="ico" alt="">
+        </div>
+        <div>
+          <label for="" class="litle-label fw-lighter">Location</label>
+          <h6 class="fw-bold">Riyadh Yard, Saudi Arabia</h6>
+        </div>
+        
+      </div>
+      <div class="condition price d-flex align-item-center justify-content-between down- py-3 w-100" >
+        <div class="condition-area d-flex align-item-center w-50">
+          <div>
+          <img src="media/auct_hammer_green.png" class="ico" alt="">
+          </div>
+          <div>
+          <label class="fw-lighter litle-label">Sold for</label>
+          <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+        </div>
+        </div>
+        <div class="condition-area d-flex align-item-center w-50">
+          <div>
+          <img src="media/money_bag.png" class="ico" alt="">
+          </div>
+          <div>
+          <label class="fw-lighter litle-label">Buy now</label>
+          <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+        </div>
+        </div>
+      </div>
+      <div class="more">
+        <div class="dropdown w-100">
+          <button class="w-100  dropdown-toggle bids fw-lighter" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            View 3 Bids
+          </button>
+          <ul class="dropdown-menu w-100">
+            <li class="dropdown-item">
+              <div class="d-flex align-item-end justify-content-between">
+                <div class="calender">
+                  <img src="media/calendar.png" alt="">
+                  <p>1.</p>
+                </div>
+                <div class="bid-details">
+                  <label class="fw-lighter litle-label">10 Dec 2019 - 20:05</label>
+                  <h6 class="fw-bold">Jovana milic</h6>
+                </div>
+                <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+              </div>
+            </li>
+            <li class="dropdown-item">
+              <div class="d-flex align-item-end justify-content-between">
+                <div class="calender">
+                  <img src="media/calendar.png" alt="">
+                  <p>2.</p>
+                </div>
+                <div class="bid-details">
+                  <label class="fw-lighter litle-label">10 Dec 2019 - 20:05</label>
+                  <h6 class="fw-bold">Jovana milic</h6>
+                </div>
+                <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+              </div>
+            </li>
+            <li class="dropdown-item">
+              <div class="d-flex align-item-end justify-content-between">
+                <div class="calender">
+                  <img src="media/calendar.png" alt="">
+                  <p>3.</p>
+                </div>
+                <div class="bid-details">
+                  <label class="fw-lighter litle-label">10 Dec 2019 - 20:05</label>
+                  <h6 class="fw-bold">Jovana milic</h6>
+                </div>
+                <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="auction-card ">
+      <div class="duration"><p class="m-0">Thursday 12 Dec 2019 - 15:10</p></div>
+      <div class="auction-image w-100 position-relative">
+        <img src="media/fav_star.png" class="position-absolute product-fav-icon" alt="">
+        <img src="media/auct_hammer.png" class="position-absolute product-auct-icon" alt="">
+        <img src="media/car1.png" class="w-100" alt="">
+      </div>
+      <div class="down- py-3 product-details d-flex align-item-center justify-content-between">
+        <h5 class="m-0">Toyota Camry SE</h5>
+        <p class="m-0">2019</p>
+      </div>
+      <div class="condition d-flex align-item-center justify-content-between down- py-3" >
+        <div class="condition-area d-flex align-item-center">
+          <div>
+          <img src="media/overturned-vehicle.png" class="ico" alt="">
+          </div>
+          <p class="m-0 condition-label">Accident</p>
+        </div>
+        <div class="condition-area d-flex align-item-center">
+          <div>
+          <img src="media/visible.png" class="ico" alt="">
+          </div>
+          <p class="m-0 condition-label">7,732 Views</p>
+        </div>
+      </div>
+      <div class="down- py-3 d-flex align-item-center">
+        <div class="img">
+          <img src="media/location.png" class="ico" alt="">
+        </div>
+        <div>
+          <label for="" class="litle-label fw-lighter">Location</label>
+          <h6 class="fw-bold">Riyadh Yard, Saudi Arabia</h6>
+        </div>
+        
+      </div>
+      <div class="condition price d-flex align-item-center justify-content-between down- py-3 w-100" >
+        <div class="condition-area d-flex align-item-center w-50">
+          <div>
+          <img src="media/auct_hammer_green.png" class="ico" alt="">
+          </div>
+          <div>
+          <label class="fw-lighter litle-label">Sold for</label>
+          <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+        </div>
+        </div>
+        <div class="condition-area d-flex align-item-center w-50">
+          <div>
+          <img src="media/money_bag.png" class="ico" alt="">
+          </div>
+          <div>
+          <label class="fw-lighter litle-label">Buy now</label>
+          <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+        </div>
+        </div>
+      </div>
+      <div class="more">
+        <div class="dropdown w-100">
+          <button class="w-100  dropdown-toggle bids fw-lighter" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            View 3 Bids
+          </button>
+          <ul class="dropdown-menu w-100">
+            <li class="dropdown-item">
+              <div class="d-flex align-item-end justify-content-between">
+                <div class="calender">
+                  <img src="media/calendar.png" alt="">
+                  <p>1.</p>
+                </div>
+                <div class="bid-details">
+                  <label class="fw-lighter litle-label">10 Dec 2019 - 20:05</label>
+                  <h6 class="fw-bold">Jovana milic</h6>
+                </div>
+                <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+              </div>
+            </li>
+            <li class="dropdown-item">
+              <div class="d-flex align-item-end justify-content-between">
+                <div class="calender">
+                  <img src="media/calendar.png" alt="">
+                  <p>2.</p>
+                </div>
+                <div class="bid-details">
+                  <label class="fw-lighter litle-label">10 Dec 2019 - 20:05</label>
+                  <h6 class="fw-bold">Jovana milic</h6>
+                </div>
+                <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+              </div>
+            </li>
+            <li class="dropdown-item">
+              <div class="d-flex align-item-end justify-content-between">
+                <div class="calender">
+                  <img src="media/calendar.png" alt="">
+                  <p>3.</p>
+                </div>
+                <div class="bid-details">
+                  <label class="fw-lighter litle-label">10 Dec 2019 - 20:05</label>
+                  <h6 class="fw-bold">Jovana milic</h6>
+                </div>
+                <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="auction-card ">
+      <div class="duration"><p class="m-0">Thursday 12 Dec 2019 - 15:10</p></div>
+      <div class="auction-image w-100 position-relative">
+        <img src="media/fav_star.png" class="position-absolute product-fav-icon" alt="">
+        <img src="media/auct_hammer.png" class="position-absolute product-auct-icon" alt="">
+        <img src="media/car1.png" class="w-100" alt="">
+      </div>
+      <div class="down- py-3 product-details d-flex align-item-center justify-content-between">
+        <h5 class="m-0">Toyota Camry SE</h5>
+        <p class="m-0">2019</p>
+      </div>
+      <div class="condition d-flex align-item-center justify-content-between down- py-3" >
+        <div class="condition-area d-flex align-item-center">
+          <div>
+          <img src="media/overturned-vehicle.png" class="ico" alt="">
+          </div>
+          <p class="m-0 condition-label">Accident</p>
+        </div>
+        <div class="condition-area d-flex align-item-center">
+          <div>
+          <img src="media/visible.png" class="ico" alt="">
+          </div>
+          <p class="m-0 condition-label">7,732 Views</p>
+        </div>
+      </div>
+      <div class="down- py-3 d-flex align-item-center">
+        <div class="img">
+          <img src="media/location.png" class="ico" alt="">
+        </div>
+        <div>
+          <label for="" class="litle-label fw-lighter">Location</label>
+          <h6 class="fw-bold">Riyadh Yard, Saudi Arabia</h6>
+        </div>
+        
+      </div>
+      <div class="condition price d-flex align-item-center justify-content-between down- py-3 w-100" >
+        <div class="condition-area d-flex align-item-center w-50">
+          <div>
+          <img src="media/auct_hammer_green.png" class="ico" alt="">
+          </div>
+          <div>
+          <label class="fw-lighter litle-label">Sold for</label>
+          <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+        </div>
+        </div>
+        <div class="condition-area d-flex align-item-center w-50">
+          <div>
+          <img src="media/money_bag.png" class="ico" alt="">
+          </div>
+          <div>
+          <label class="fw-lighter litle-label">Buy now</label>
+          <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+        </div>
+        </div>
+      </div>
+      <div class="more">
+        <div class="dropdown w-100">
+          <button class="w-100  dropdown-toggle bids fw-lighter" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            View 3 Bids
+          </button>
+          <ul class="dropdown-menu w-100">
+            <li class="dropdown-item">
+              <div class="d-flex align-item-end justify-content-between">
+                <div class="calender">
+                  <img src="media/calendar.png" alt="">
+                  <p>1.</p>
+                </div>
+                <div class="bid-details">
+                  <label class="fw-lighter litle-label">10 Dec 2019 - 20:05</label>
+                  <h6 class="fw-bold">Jovana milic</h6>
+                </div>
+                <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+              </div>
+            </li>
+            <li class="dropdown-item">
+              <div class="d-flex align-item-end justify-content-between">
+                <div class="calender">
+                  <img src="media/calendar.png" alt="">
+                  <p>2.</p>
+                </div>
+                <div class="bid-details">
+                  <label class="fw-lighter litle-label">10 Dec 2019 - 20:05</label>
+                  <h6 class="fw-bold">Jovana milic</h6>
+                </div>
+                <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+              </div>
+            </li>
+            <li class="dropdown-item">
+              <div class="d-flex align-item-end justify-content-between">
+                <div class="calender">
+                  <img src="media/calendar.png" alt="">
+                  <p>3.</p>
+                </div>
+                <div class="bid-details">
+                  <label class="fw-lighter litle-label">10 Dec 2019 - 20:05</label>
+                  <h6 class="fw-bold">Jovana milic</h6>
+                </div>
+                <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="auction-card ">
+      <div class="duration"><p class="m-0">Thursday 12 Dec 2019 - 15:10</p></div>
+      <div class="auction-image w-100 position-relative">
+        <img src="media/fav_star.png" class="position-absolute product-fav-icon" alt="">
+        <img src="media/auct_hammer.png" class="position-absolute product-auct-icon" alt="">
+        <img src="media/car1.png" class="w-100" alt="">
+      </div>
+      <div class="down- py-3 product-details d-flex align-item-center justify-content-between">
+        <h5 class="m-0">Toyota Camry SE</h5>
+        <p class="m-0">2019</p>
+      </div>
+      <div class="condition d-flex align-item-center justify-content-between down- py-3" >
+        <div class="condition-area d-flex align-item-center">
+          <div>
+          <img src="media/overturned-vehicle.png" class="ico" alt="">
+          </div>
+          <p class="m-0 condition-label">Accident</p>
+        </div>
+        <div class="condition-area d-flex align-item-center">
+          <div>
+          <img src="media/visible.png" class="ico" alt="">
+          </div>
+          <p class="m-0 condition-label">7,732 Views</p>
+        </div>
+      </div>
+      <div class="down- py-3 d-flex align-item-center">
+        <div class="img">
+          <img src="media/location.png" class="ico" alt="">
+        </div>
+        <div>
+          <label for="" class="litle-label fw-lighter">Location</label>
+          <h6 class="fw-bold">Riyadh Yard, Saudi Arabia</h6>
+        </div>
+        
+      </div>
+      <div class="condition price d-flex align-item-center justify-content-between down- py-3 w-100" >
+        <div class="condition-area d-flex align-item-center w-50">
+          <div>
+          <img src="media/auct_hammer_green.png" class="ico" alt="">
+          </div>
+          <div>
+          <label class="fw-lighter litle-label">Sold for</label>
+          <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+        </div>
+        </div>
+        <div class="condition-area d-flex align-item-center w-50">
+          <div>
+          <img src="media/money_bag.png" class="ico" alt="">
+          </div>
+          <div>
+          <label class="fw-lighter litle-label">Buy now</label>
+          <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+        </div>
+        </div>
+      </div>
+      <div class="more">
+        <div class="dropdown w-100">
+          <button class="w-100  dropdown-toggle bids fw-lighter" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            View 3 Bids
+          </button>
+          <ul class="dropdown-menu w-100">
+            <li class="dropdown-item">
+              <div class="d-flex align-item-end justify-content-between">
+                <div class="calender">
+                  <img src="media/calendar.png" alt="">
+                  <p>1.</p>
+                </div>
+                <div class="bid-details">
+                  <label class="fw-lighter litle-label">10 Dec 2019 - 20:05</label>
+                  <h6 class="fw-bold">Jovana milic</h6>
+                </div>
+                <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+              </div>
+            </li>
+            <li class="dropdown-item">
+              <div class="d-flex align-item-end justify-content-between">
+                <div class="calender">
+                  <img src="media/calendar.png" alt="">
+                  <p>2.</p>
+                </div>
+                <div class="bid-details">
+                  <label class="fw-lighter litle-label">10 Dec 2019 - 20:05</label>
+                  <h6 class="fw-bold">Jovana milic</h6>
+                </div>
+                <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+              </div>
+            </li>
+            <li class="dropdown-item">
+              <div class="d-flex align-item-end justify-content-between">
+                <div class="calender">
+                  <img src="media/calendar.png" alt="">
+                  <p>3.</p>
+                </div>
+                <div class="bid-details">
+                  <label class="fw-lighter litle-label">10 Dec 2019 - 20:05</label>
+                  <h6 class="fw-bold">Jovana milic</h6>
+                </div>
+                <h6 class="fw-bold">23,911 <span class="curency fw-lighter">SAR</span></h6>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  </div>
+<div class="container-fluid footer-main">
+  <footer class="footer mx-auto container py-5  d-flex align-item-center justify-content-between">
+    <a href=""><img src="media/main_logo.png" alt=""></a>
+    <ul class="m-0 p-0 h-100 d-flex align-item-center menu-list">
+      <li><a href="">TERMS & CONDITIONS</a></li>
+      <li><a href="">PRIVACY POLICY</a></li>
+      <li><a href="">FAQS</a></li>
+    </ul>
+    <div class="d-flex align-item-center justify-content-center">
+      <p class="m-0 d-flex question">Questions? &nbsp; <a href="mailto:support@carauction.com">support@carauction.com</a></p>
+    </div>
+    <div class="socials">
+      <a class="p-2 m-2" href=""><img src="media/instagram.png" alt=""></a>
+      <a class="p-2 m-2" href=""><img src="media/facebook.png" alt=""></a>
+      <a class="p-2 m-2" href=""><img src="media/twitter.png" alt=""></a>
+    </div>
+  </footer>
+</div>
+<script src="src/js/bootstrap.min.js"></script>
+<script src="src/js/app.js"></script>
+</body>
+
+</html>

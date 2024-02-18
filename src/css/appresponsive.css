@@ -1,0 +1,156 @@
+@media screen and (max-width:1200px) {
+  .auction-card{
+    width: 47%;
+  }
+  .search-bar input{
+    width: 600px;
+  }
+  .choice-area-inner{
+    display: flex;align-items: center;justify-content: center;flex-direction: column;
+    padding-right: 2rem !important;
+    padding-left: 2rem !important;
+  }
+ a,label{text-align: center;}
+}
+@media  screen and (max-width:992px) {
+  .account_card{
+    width: 90%;}
+  .side-filter-area{
+    
+    position: fixed;
+    background: #fff;
+    z-index: 999;
+    bottom: 45px;
+    left: 50%;
+    transform: translate(-50%,-45px);
+    width: 90%;
+    
+    transition: all 0.5s ease;
+    display: none;
+  }
+  .main-content{
+    width: 100%;
+  }
+  #main{
+    display: flex;justify-content: center;
+  }
+  .filter-floating{
+    display: block;
+    bottom:20px;
+    right: 20px;
+    z-index: 9999;
+  }
+  .search-bar input{
+    width: 400px;
+  }
+  .choice-area-inner{
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  footer ul{
+    margin: 20px 0;
+  }
+}
+@media screen and (max-width:768px) {
+  .left_side{
+    display: none;
+  }
+  .right_side{
+    width: 100% !important;
+  }
+  .main-content{
+    padding: 0 !important;
+  }
+  .choice-area-inner{
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+  .choice-area-inner label{
+    font-size: 12px;
+  }
+  .auction-card{
+    margin: 5px;
+    width: 255px !important;
+  }
+  .menulist{
+    position: absolute;
+    left: 50%;
+    top: 60px;
+    transform: translate(-50%,0);
+    width: 100%;
+   background: rgb(255, 255, 255);
+   z-index: 999;
+   height:0px;
+   overflow-y: hidden;
+   transition: all 0.5s ease;
+   
+  }
+  .account-btn{
+    padding: 10px 10px;
+  }
+  .menu-list{flex-direction: column;}
+  .menu-list li{
+    padding: 10px;
+  }
+  .menu-list li a:hover{
+    transition: all 0.2s ease;
+    border-bottom: 2px solid black;
+  }
+  .search-bar input{
+    width: 300px;
+  }
+  .mobmenu{
+    display: block;
+  }
+  .account-btn label{
+    display: none;
+  }
+  .account-btn img{
+    padding: 0;
+  }
+}
+@media screen and (max-width:576px) {
+  .auction-card{
+    width: 90% !important;
+  }
+  .search-bar input{
+    width: auto !important;
+  }
+  .filter{
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
+  }
+  .third-nav{
+    flex-direction: column-reverse;
+  }
+  .search-bar-icon{
+    margin-right: 0;
+    width: 25px;
+    height: 25px;
+  }
+  .filter-condition{
+    margin: 10px 0;
+    border-bottom: none;
+  }
+  .choice-area-inner{
+    padding-left: 0rem !important;
+    padding-right: 0rem !important;
+  }
+  .choices{
+    width: 100%;
+    justify-content: space-between;
+  }
+  .footer{
+    flex-direction: column;
+  }
+  .socials{
+    display: flex;justify-content: center;
+  }
+}
+.mobmenuactive{
+  height:180px;
+  overflow-y: visible;
+}
+.showmenu{
+  display: block;
+}
